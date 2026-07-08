@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURELIA — An Observatory of Impossible Light</title>
+<meta name="description" content="A generative WebGL experience. Every pixel computed, nothing photographed. Designed and built end-to-end by Claude Fable.">
+<meta property="og:title" content="AURELIA — An Observatory of Impossible Light">
+<meta property="og:description" content="A fully generative WebGL experience designed and built by an AI.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='38' fill='none' stroke='%23d9b98a' stroke-width='4'/><circle cx='50' cy='50' r='10' fill='%23d9b98a'/></svg>">
+<link rel="preload" href="assets/fonts/italiana-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-theme="void">
+
+<!-- Generative shader sky -->
+<canvas id="sky" aria-hidden="true"></canvas>
+<!-- Three.js artifact layer -->
+<canvas id="artifact" aria-hidden="true"></canvas>
+<!-- Film grain -->
+<div class="grain" aria-hidden="true"></div>
+<!-- Custom cursor -->
+<div class="cursor" aria-hidden="true"><div class="cursor-dot"></div><div class="cursor-halo"></div></div>
+
+<div class="progress" aria-hidden="true"><div class="progress-fill"></div></div>
+
+<header class="site-head">
+  <a class="brand" href="#" data-magnet>
+    <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="20" cy="20" r="3.5" fill="currentColor"/><ellipse cx="20" cy="20" rx="19" ry="7" fill="none" stroke="currentColor" stroke-width=".6" transform="rotate(-24 20 20)"/></svg>
+    <span>AURELIA</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="#atlas" data-magnet>Atlas</a>
+    <a href="#chambers" data-magnet>Chambers</a>
+    <a href="#colophon" data-magnet>Colophon</a>
+    <a href="/guide/" class="nav-guide" data-magnet>Guide</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <p class="hero-eyebrow reveal"><span class="rule"></span>OBSERVATORY N°01 — EST. IN A SINGLE CONTEXT WINDOW<span class="rule"></span></p>
+    <h1 class="hero-title" aria-label="AURELIA">
+      <span class="ht-letter">A</span><span class="ht-letter">U</span><span class="ht-letter">R</span><span class="ht-letter">E</span><span class="ht-letter">L</span><span class="ht-letter">I</span><span class="ht-letter">A</span>
+    </h1>
+    <p class="hero-sub reveal">An observatory of <em>impossible light</em> — a place that exists only as mathematics,<br class="br-wide"> rendered live in your browser. No photographs. No stock. Only code.</p>
+    <div class="hero-cta reveal">
+      <a href="#atlas" class="btn-orbit" data-magnet><span class="btn-ring" aria-hidden="true"></span>Begin descent</a>
+      <span class="hero-coord mono" id="coord">RA 21ʰ 04ᵐ · DEC −11° 22′ · z = 0.0034</span>
+    </div>
+    <div class="hero-scroll mono" aria-hidden="true"><span class="scroll-line"></span>SCROLL</div>
+  </section>
+
+  <!-- ============ ATLAS / MANIFESTO ============ -->
+  <section class="atlas" id="atlas">
+    <div class="atlas-inner">
+      <p class="section-label mono reveal">01 — ATLAS</p>
+      <h2 class="atlas-text">
+        <span class="line-mask"><span class="line">Somewhere between a telescope</span></span>
+        <span class="line-mask"><span class="line">and a <em>daydream</em>, there is a room</span></span>
+        <span class="line-mask"><span class="line">where light forgets its manners —</span></span>
+        <span class="line-mask"><span class="line">it bends, it blooms, it <em>sings</em>.</span></span>
+      </h2>
+      <p class="atlas-note reveal">The nebula behind this text is a fragment shader — five octaves of simplex noise, folded through itself twice and graded like film. It has never looked exactly like this before, and it never will again. Move your cursor. It notices.</p>
+    </div>
+  </section>
+
+  <!-- ============ CHAMBERS ============ -->
+  <section class="chambers" id="chambers">
+    <p class="section-label mono reveal">02 — THE CHAMBERS</p>
+
+    <article class="chamber" data-chamber="1">
+      <div class="chamber-meta">
+        <span class="chamber-no mono">CH·01</span>
+        <canvas class="chart" width="520" height="520" data-chart="orbits" aria-hidden="true"></canvas>
+      </div>
+      <div class="chamber-body">
+        <h3 class="chamber-title"><span class="line-mask"><span class="line">The Gilded</span></span><span class="line-mask"><span class="line"><em>Meridian</em></span></span></h3>
+        <p class="chamber-text reveal">A brass ring the width of a cathedral, humming at 41 hertz. Visitors report that standing at its center feels like being remembered by someone you haven't met yet. The star chart beside this text is drawn procedurally on a 2D canvas — orbital rings, epicycles, and 900 stars seeded from the chapter number.</p>
+        <a class="chamber-link mono" href="#" data-magnet>ENTER THE MERIDIAN <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <article class="chamber chamber--flip" data-chamber="2">
+      <div class="chamber-meta">
+        <span class="chamber-no mono">CH·02</span>
+        <canvas class="chart" width="520" height="520" data-chart="waves" aria-hidden="true"></canvas>
+      </div>
+      <div class="chamber-body">
+        <h3 class="chamber-title"><span class="line-mask"><span class="line">The Sea of</span></span><span class="line-mask"><span class="line"><em>Slow Radio</em></span></span></h3>
+        <p class="chamber-text reveal">Every star you have ever seen is a recording. This chamber plays the tape backwards: interference patterns ripple across the floor at the speed of thought. The figure here is a live interference field — two phase-shifted wave sources, resolved into contour lines each frame.</p>
+        <a class="chamber-link mono" href="#" data-magnet>TUNE THE RECEIVER <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <article class="chamber" data-chamber="3">
+      <div class="chamber-meta">
+        <span class="chamber-no mono">CH·03</span>
+        <canvas class="chart" width="520" height="520" data-chart="rose" aria-hidden="true"></canvas>
+      </div>
+      <div class="chamber-body">
+        <h3 class="chamber-title"><span class="line-mask"><span class="line">The Chapel of</span></span><span class="line-mask"><span class="line"><em>Recursive Dawn</em></span></span></h3>
+        <p class="chamber-text reveal">Sunrise, but it never finishes rising. The light loops on itself in golden-ratio spirals — the same mathematics as the rose window drawn beside this text, a maurer rose traced petal by petal, live, with a pen of light.</p>
+        <a class="chamber-link mono" href="#" data-magnet>WITNESS THE DAWN <span class="arrow">→</span></a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>LIGHT IS A LANGUAGE ✦ EVERY PIXEL COMPUTED ✦ NOTHING PHOTOGRAPHED ✦ MATHEMATICS, GRADED LIKE FILM ✦&nbsp;</span>
+      <span>LIGHT IS A LANGUAGE ✦ EVERY PIXEL COMPUTED ✦ NOTHING PHOTOGRAPHED ✦ MATHEMATICS, GRADED LIKE FILM ✦&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============ COLOPHON ============ -->
+  <section class="colophon" id="colophon">
+    <p class="section-label mono reveal">03 — COLOPHON</p>
+    <div class="colophon-grid">
+      <div class="colo-cell reveal">
+        <h4 class="mono">MEDIUM</h4>
+        <p>One fragment shader (the sky), one vertex-displaced icosahedron (the artifact), three 2D-canvas instruments, and typography. ~0 kb of images.</p>
+      </div>
+      <div class="colo-cell reveal">
+        <h4 class="mono">TYPE</h4>
+        <p>Italiana for the monument, Fraunces (variable, full axes) for the voice, Space Grotesk for the body, IBM Plex Mono for the margins.</p>
+      </div>
+      <div class="colo-cell reveal">
+        <h4 class="mono">AUTHOR</h4>
+        <p>Designed, written, and engineered end-to-end by <strong>Claude Fable</strong> — concept, palette, shaders, copy, and every line of code. Read <a href="/guide/">the guide</a>, or visit the sister site <a href="https://tangerine-press.netlify.app" id="sisterLink">TANGERINE PRESS</a> — same author, opposite universe.</p>
+      </div>
+      <div class="colo-cell reveal">
+        <h4 class="mono">PALETTE</h4>
+        <div class="swatches">
+          <span class="swatch" style="--c:#07060d" title="#07060D"></span>
+          <span class="swatch" style="--c:#1b1440" title="#1B1440"></span>
+          <span class="swatch" style="--c:#3f6df2" title="#3F6DF2"></span>
+          <span class="swatch" style="--c:#66e2c4" title="#66E2C4"></span>
+          <span class="swatch" style="--c:#d9b98a" title="#D9B98A"></span>
+          <span class="swatch" style="--c:#efe9dd" title="#EFE9DD"></span>
+        </div>
+      </div>
+    </div>
+    <footer class="site-foot">
+      <p class="foot-big">AURELIA</p>
+      <div class="foot-row mono">
+        <span>© MMXXVI · A DEMONSTRATION OF GENERATIVE WEB DESIGN</span>
+        <a href="/guide/" data-magnet>HOW THIS WAS MADE →</a>
+      </div>
+    </footer>
+  </section>
+</main>
+
+<script type="module" src="assets/main.js"></script>
+</body>
+</html>

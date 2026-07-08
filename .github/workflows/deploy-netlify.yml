@@ -1,0 +1,41 @@
+name: Deploy sites to Netlify
+
+on:
+  workflow_dispatch:
+    inputs:
+      netlify_token:
+        description: "Netlify auth token (only needed if NETLIFY_AUTH_TOKEN secret is not set)"
+        required: false
+        default: ""
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve token
+        run: |
+          TOKEN="${{ secrets.NETLIFY_AUTH_TOKEN }}"
+          if [ -z "$TOKEN" ]; then TOKEN="${{ github.event.inputs.netlify_token }}"; fi
+          if [ -z "$TOKEN" ]; then echo "No Netlify token available" >&2; exit 1; fi
+          echo "::add-mask::$TOKEN"
+          echo "NETLIFY_TOKEN=$TOKEN" >> "$GITHUB_ENV"
+
+      - name: Deploy AURELIA (aurelia-observatory)
+        run: |
+          cd aurelia && zip -qr ../aurelia.zip . && cd ..
+          curl -sS --fail-with-body -X POST \
+            "https://api.netlify.com/api/v1/sites/f22b9a8a-25fb-4f43-b7bb-dc596ea910b1/deploys" \
+            -H "Authorization: Bearer $NETLIFY_TOKEN" \
+            -H "Content-Type: application/zip" \
+            --data-binary @aurelia.zip | head -c 600
+
+      - name: Deploy TANGERINE PRESS (tangerine-press)
+        run: |
+          cd tangerine && zip -qr ../tangerine.zip . && cd ..
+          curl -sS --fail-with-body -X POST \
+            "https://api.netlify.com/api/v1/sites/d3bd44ed-b4ec-41e0-ab96-0c0a3515eabd/deploys" \
+            -H "Authorization: Bearer $NETLIFY_TOKEN" \
+            -H "Content-Type: application/zip" \
+            --data-binary @tangerine.zip | head -c 600

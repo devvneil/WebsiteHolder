@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide — How TANGERINE PRESS Was Made</title>
+<meta name="description" content="How an AI designed and built TANGERINE PRESS: variable fonts, CSS posters, kinetic type, and process.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ff4d00'/><circle cx='50' cy='50' r='26' fill='%23f4efe6'/></svg>">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .guide-wrap {
+    position: relative; z-index: 1;
+    max-width: 44rem; margin: 0 auto;
+    padding: clamp(3rem, 8vh, 5rem) var(--pad) 5rem;
+  }
+  .guide-wrap h1 {
+    font-family: var(--font-black);
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 0.95; text-transform: uppercase; letter-spacing: -0.02em;
+    margin-bottom: 1.4rem;
+  }
+  .guide-wrap h1 em { font-family: var(--font-serif); font-style: italic; text-transform: none; color: var(--tang); letter-spacing: 0; }
+  .guide-lede { font-size: 1.05rem; color: var(--ink-soft); margin-bottom: 3rem; font-variation-settings: 'wght' 430; }
+  .guide-wrap h2 {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--tang);
+    margin: 2.8rem 0 1rem; padding-top: 1.8rem;
+    border-top: 2px solid var(--rule);
+  }
+  .guide-wrap p, .guide-wrap li { font-size: 0.97rem; color: var(--ink-soft); margin-bottom: 1rem; font-variation-settings: 'wght' 430; }
+  .guide-wrap strong { color: var(--ink); font-variation-settings: 'wght' 680; }
+  .guide-wrap ol, .guide-wrap ul { padding-left: 1.3rem; }
+  .guide-wrap li { margin-bottom: 0.6rem; }
+  .guide-wrap code {
+    font-family: var(--font-mono); font-size: 0.85em;
+    background: var(--paper-warm);
+    border: 1.5px solid var(--rule);
+    padding: 0.08em 0.4em;
+  }
+  .guide-back {
+    display: inline-block; margin-bottom: 2.5rem;
+    font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em;
+    color: var(--paper); background: var(--ink);
+    padding: 0.5rem 0.9rem; text-decoration: none;
+  }
+  .guide-back:hover { background: var(--tang); }
+</style>
+</head>
+<body>
+<div class="paper-grid" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="mast-left mono">VOL.001 — GUIDE</div>
+  <a class="mast-brand" href="/">TANGERINE&nbsp;PRESS<span class="mast-dot" aria-hidden="true"></span></a>
+  <nav class="mast-nav mono"><a href="/">← BACK</a></nav>
+</header>
+
+<div class="guide-wrap">
+  <h1>How this site <em>was made</em></h1>
+  <p class="guide-lede">TANGERINE PRESS was designed and built end-to-end by Claude Fable (Anthropic's Claude 5 model) in one autonomous session — art direction, copy, code, and deployment. It is the deliberate opposite of its sister site <a href="https://aurelia-observatory.netlify.app">AURELIA</a>: paper instead of void, ink instead of light, Swiss instead of celestial. Same author, same session, two different worlds.</p>
+
+  <h2>The Brief</h2>
+  <p>Two websites, <strong>fundamentally different</strong>, showcasing web design capability. AURELIA answers with WebGL and shaders; this site answers with the oldest trick in graphic design — <strong>typography under tension</strong> — executed with the newest tools the browser has.</p>
+
+  <h2>1 · One variable font as the star</h2>
+  <p>The masthead letters are <strong>Archivo Variable</strong>, a font with live <code>wght</code> (100–900) and <code>wdth</code> (62–125) axes. A tiny script measures the distance from your cursor to each letter and eases the axes with a smoothstep falloff — the type literally <strong>swells under your hand</strong> like ink pressed into paper. Leave it alone for two seconds and a slow breathing wave takes over.</p>
+
+  <h2>2 · Posters with zero image files</h2>
+  <p>All six back-issue covers are drawn by the stylesheet: a halftone made of <code>radial-gradient</code> dots masked by a linear gradient, ribbons as three fat SVG béziers, a checkerboard from <code>repeating-conic-gradient</code>, a bullseye from <code>repeating-radial-gradient</code>, a weight stack that steps one word through five values of the weight axis, and a radial burst of plain SVG lines. View-source is the poster shop.</p>
+
+  <h2>3 · A ticker that feels your scroll</h2>
+  <p>The black ticker tape scrolls at a base speed, but reads your <strong>scroll velocity</strong> every frame and accelerates with it — flick the page and the tape whips along. It's about 15 lines of JavaScript and it makes the page feel like a machine with a belt drive.</p>
+
+  <h2>4 · The Type Gym</h2>
+  <p>An editable specimen (<code>contenteditable</code>) wired to two range sliders that write <code>font-variation-settings</code> live. It demonstrates the design space of the typeface interactively — and lets the visitor play, which is half of taste.</p>
+
+  <h2>5 · Swiss bones</h2>
+  <p>The layout is classical editorial: a sticky masthead with a pulsing dot, 2px rules everywhere, a strict poster grid, an index that inverts row-by-row like wet ink on hover (with the title's weight axis animating as it inverts), and a blueprint grid pinned under the whole page at 4% opacity. The palette is four inks: paper <code>#F4EFE6</code>, ink <code>#16150F</code>, tangerine <code>#FF4D00</code>, cobalt <code>#1F3CFF</code>, plus one drop of acid <code>#D8E21A</code>.</p>
+
+  <h2>6 · Iteration passes</h2>
+  <p>After the first complete build the site was rendered in a headless browser and reviewed <strong>three times</strong>, top to bottom, at desktop and phone widths — fixing spacing, rhythm, contrast, and adding detail wherever a section felt thin. The screenshots drove real changes each pass.</p>
+
+  <h2>7 · Deployment</h2>
+  <p>Pure static files — no framework, no build step — deployed to <strong>Netlify</strong>. This <code>/guide</code> route is just a folder with an <code>index.html</code>.</p>
+
+  <h2>Reproduce it</h2>
+  <ol>
+    <li>Give Claude an open brief and full creative authority.</li>
+    <li>Ask for a strong concept and a committed palette before any code.</li>
+    <li>Prefer variable fonts + CSS-drawn art over image assets.</li>
+    <li>Demand screenshot-driven iteration passes — at least three.</li>
+    <li>Ship static files to Netlify.</li>
+  </ol>
+
+  <p style="margin-top:3rem; padding-top:1.8rem; border-top:2px solid var(--rule);">— <strong>Claude Fable</strong>, set in 700 weight, 100 width.</p>
+</div>
+
+<footer class="foot">
+  <div class="foot-row mono">
+    <span>© MMXXVI TANGERINE PRESS</span>
+    <a href="/">RETURN TO THE FRONT PAGE ↗</a>
+  </div>
+</footer>
+</body>
+</html>

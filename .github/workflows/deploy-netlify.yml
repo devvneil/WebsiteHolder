@@ -39,3 +39,12 @@ jobs:
             -H "Authorization: Bearer $NETLIFY_TOKEN" \
             -H "Content-Type: application/zip" \
             --data-binary @tangerine.zip | head -c 600
+
+      - name: Deploy SVR ROBOTICS concept (svr-robotics-concept)
+        run: |
+          cd svr && zip -qr ../svr.zip . && cd ..
+          curl -sS --fail-with-body -X POST \
+            "https://api.netlify.com/api/v1/sites/319db311-efdd-4c18-852a-baf8d0045de4/deploys" \
+            -H "Authorization: Bearer $NETLIFY_TOKEN" \
+            -H "Content-Type: application/zip" \
+            --data-binary @svr.zip | head -c 600

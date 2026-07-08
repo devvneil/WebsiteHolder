@@ -6,6 +6,7 @@ The Netlify projects already exist:
 | --- | --- | --- | --- |
 | AURELIA | `aurelia-observatory` | `f22b9a8a-25fb-4f43-b7bb-dc596ea910b1` | https://aurelia-observatory.netlify.app |
 | TANGERINE PRESS | `tangerine-press` | `d3bd44ed-b4ec-41e0-ab96-0c0a3515eabd` | https://tangerine-press.netlify.app |
+| SVR ROBOTICS (concept) | `svr-robotics-concept` | `319db311-efdd-4c18-852a-baf8d0045de4` | https://svr-robotics-concept.netlify.app |
 
 ## Option 1 — one command from any machine (needs `NETLIFY_AUTH_TOKEN`)
 
@@ -32,4 +33,5 @@ curl -X POST "https://api.netlify.com/api/v1/sites/d3bd44ed-b4ec-41e0-ab96-0c0a3
 ```bash
 npx netlify-cli deploy --prod --dir=aurelia   --site f22b9a8a-25fb-4f43-b7bb-dc596ea910b1
 npx netlify-cli deploy --prod --dir=tangerine --site d3bd44ed-b4ec-41e0-ab96-0c0a3515eabd
+npx netlify-cli deploy --prod --dir=svr       --site 319db311-efdd-4c18-852a-baf8d0045de4
 ```

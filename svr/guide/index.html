@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide — How the SVR Robotics Concept Was Made</title>
+<meta name="description" content="How an AI redesigned SVR Robotics: FABRIK inverse kinematics in SVG, HUD design system, and process.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%230d0f12'/><path d='M25 62 L42 30 L58 30 L41 62 Z' fill='%23ff6a00'/><circle cx='63' cy='36' r='9' fill='none' stroke='%2338d6e0' stroke-width='6'/></svg>">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .guide-wrap {
+    position: relative; z-index: 2;
+    max-width: 44rem; margin: 0 auto;
+    padding: clamp(3rem, 8vh, 5rem) var(--pad) 5rem;
+  }
+  .guide-wrap h1 {
+    font-family: var(--font-disp); font-weight: 700;
+    font-size: clamp(2rem, 5.5vw, 3.6rem);
+    line-height: 1.02; text-transform: uppercase;
+    margin-bottom: 1.4rem;
+  }
+  .guide-wrap h1 em { font-style: normal; color: var(--orange); }
+  .guide-lede { color: var(--ink-dim); font-size: 1rem; margin-bottom: 3rem; }
+  .guide-wrap h2 {
+    font-family: var(--font-mono); font-weight: 400;
+    font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--orange);
+    margin: 2.8rem 0 1rem; padding-top: 1.8rem;
+    border-top: 1px solid var(--line);
+  }
+  .guide-wrap p, .guide-wrap li { font-size: 0.95rem; color: var(--ink-dim); margin-bottom: 1rem; }
+  .guide-wrap strong { color: var(--ink); }
+  .guide-wrap ol, .guide-wrap ul { padding-left: 1.3rem; }
+  .guide-wrap code {
+    font-family: var(--font-mono); font-size: 0.85em;
+    color: var(--cyan);
+    background: var(--cyan-soft);
+    border: 1px solid rgba(56, 214, 224, 0.2);
+    padding: 0.08em 0.4em;
+  }
+  .guide-back {
+    display: inline-block; margin-bottom: 2.5rem;
+    font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.16em;
+    color: var(--orange); border: 1px solid var(--orange);
+    padding: 0.5rem 0.9rem; text-decoration: none;
+  }
+  .guide-back:hover { background: var(--orange); color: var(--bg); }
+</style>
+</head>
+<body>
+<div class="blueprint" aria-hidden="true"></div>
+
+<div class="guide-wrap">
+  <a class="guide-back" href="/">← BACK TO THE CELL</a>
+  <h1>How this concept <em>was made</em></h1>
+  <p class="guide-lede">This SVR Robotics concept was designed and built end-to-end by Claude Fable (Anthropic's Claude 5 model) in one autonomous session — research, art direction, copy, code. It follows two earlier demonstration sites (AURELIA and TANGERINE PRESS) built with the same method.</p>
+
+  <h2>The Brief</h2>
+  <p>Redesign <strong>svrrobotics.com</strong> — a Pune robotics &amp; automation company with defence, nuclear, space, education and VR/AR simulation work — as <strong>something people haven't seen</strong>. The company's public data (products, divisions, client institutions, address) was gathered from its public listings; the original site blocks automated access, so all visuals here are code, with a clean slot to drop in the real logo and photographs.</p>
+
+  <h2>1 · The signature: a real robot on the page</h2>
+  <p>The hero contains a 3-link robotic arm drawn live in SVG and solved with <strong>FABRIK inverse kinematics</strong> (forward-and-backward reaching, 8 iterations per frame). Move your cursor into the cell and the arm enters <code>TEACH</code> mode and follows your hand; leave it alone and it returns to <code>AUTO</code>, running an endless six-phase <strong>pick-and-place cycle</strong> — hover, descend, grip, traverse, lower, release. The target is servo-lagged (an exponential smoother) so the motion feels mechanical rather than magnetic, and the telemetry panel streams real joint angles θ1/θ2/θ3 and TCP coordinates computed from the solved pose at 12 Hz.</p>
+
+  <h2>2 · A design system from the factory floor</h2>
+  <p>The visual language borrows from machine HMIs and engineering drawings: a blueprint grid with registration crosses, corner brackets on the robot cell, a slow CRT scanline, status LEDs, a conveyor-belt ticker, and a contact card styled as a <strong>teach pendant</strong>. Palette: graphite <code>#0D0F12</code>, safety orange <code>#FF6A00</code>, telemetry cyan <code>#38D6E0</code> — the colors of an actual robot cell.</p>
+
+  <h2>3 · Type</h2>
+  <p><strong>Chakra Petch</strong> (a squared technical face designed in Thailand) for display, <strong>Space Grotesk</strong> for body, <strong>IBM Plex Mono</strong> for telemetry and labels. All self-hosted as woff2.</p>
+
+  <h2>4 · Content from the real company</h2>
+  <p>Divisions, products and the client wall (VSSC/ISRO, BARC, SAC, IPR, IIT Bombay, IIT Delhi, RRCAT, C-DAC, NIT Jamshedpur, AllyGrow, Army Simulator Development Division…) come from SVR's public profiles. Copy was rewritten in a sharper voice — machines that do the impossible, daily.</p>
+
+  <h2>5 · Zero-asset discipline</h2>
+  <p>Like its sister sites, this page ships <strong>no image files</strong>: the arm, icons, logo mark, textures and ornaments are all SVG and CSS. Faster, sharper on every screen, and trivially themeable. The real photographs and logo can be dropped into <code>assets/</code> and referenced without touching the design system.</p>
+
+  <h2>6 · Process</h2>
+  <ol>
+    <li>Research the company from public sources; extract real data.</li>
+    <li>Pick one signature interaction that could only belong to this company (the IK arm).</li>
+    <li>Commit a palette and type system as CSS variables before layout.</li>
+    <li>Build static HTML/CSS/JS — no frameworks, no build step.</li>
+    <li>Render in a headless browser and iterate three passes at desktop + phone widths.</li>
+    <li>Deploy static files to Netlify with a <code>/guide</code> route like this one.</li>
+  </ol>
+
+  <p style="margin-top:3rem; padding-top:1.8rem; border-top:1px solid var(--line);">— <strong>Claude Fable</strong>, MODE: AUTO</p>
+</div>
+</body>
+</html>

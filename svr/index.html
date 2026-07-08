@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVR Robotics — Robotics · Automation · Simulation</title>
+<meta name="description" content="SVR Robotics, Pune — special-purpose robots for defence, nuclear and industry; industrial automation; VR/AR simulation; educational robotics. Concept redesign built by Claude Fable.">
+<meta property="og:title" content="SVR Robotics — Robotics · Automation · Simulation">
+<meta property="og:description" content="Special-purpose robots, industrial automation, simulation and educational robotics from Pune, India.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%230d0f12'/><path d='M25 62 L42 30 L58 30 L41 62 Z' fill='%23ff6a00'/><circle cx='63' cy='36' r='9' fill='none' stroke='%2338d6e0' stroke-width='6'/></svg>">
+<link rel="preload" href="assets/fonts/chakra-petch-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="blueprint" aria-hidden="true"></div>
+<div class="scanline" aria-hidden="true"></div>
+
+<!-- ============ TOP STATUS BAR ============ -->
+<div class="statusbar mono" aria-hidden="true">
+  <span class="sb-cell"><span class="led led--ok"></span>SYSTEM NOMINAL</span>
+  <span class="sb-cell">PUNE · IN — 18.4529° N, 73.8652° E</span>
+  <span class="sb-cell" id="clock">—</span>
+</div>
+
+<header class="head">
+  <a class="brand" href="#">
+    <!-- Recreated vector mark — drop the real logo file into assets/ and swap this SVG -->
+    <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+      <rect width="100" height="100" rx="14" fill="none" stroke="currentColor" stroke-width="4"/>
+      <path d="M25 62 L42 30 L58 30 L41 62 Z" fill="#ff6a00"/>
+      <circle cx="63" cy="36" r="9" fill="none" stroke="#38d6e0" stroke-width="6"/>
+    </svg>
+    <span class="brand-word">SVR<b>ROBOTICS</b></span>
+  </a>
+  <nav class="nav mono">
+    <a href="#capabilities">CAPABILITIES</a>
+    <a href="#work">DIVISIONS</a>
+    <a href="#clients">CLIENTS</a>
+    <a href="#contact">CONTACT</a>
+    <a href="/guide/" class="nav-cta">GUIDE ↗</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ HERO / ROBOT CELL ============ -->
+<section class="hero">
+  <div class="hero-copy">
+    <p class="kicker mono"><span class="led led--ok"></span> EST. 2015 — PUNE, INDIA · ROBOTICS &amp; INDUSTRIAL AUTOMATION</p>
+    <h1 class="h1">
+      <span class="h1-line">Machines that</span>
+      <span class="h1-line">do the <em>impossible</em>,</span>
+      <span class="h1-line">daily.</span>
+    </h1>
+    <p class="lede">Special-purpose robots for defence, nuclear and industry. Automation cells, VR &amp; AR simulators, and the robots that teach the next generation of engineers. <span class="lede-hint">The robot cell is live — point or touch inside it and the arm will follow.</span></p>
+    <div class="hero-ctas">
+      <a class="btn btn--solid" href="#contact">START A PROJECT <span aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="#capabilities">EXPLORE CAPABILITIES</a>
+    </div>
+  </div>
+
+  <div class="cell" aria-hidden="true">
+    <div class="cell-frame">
+      <span class="cell-tag mono">CELL·01 — 3-AXIS DEMONSTRATOR</span>
+      <svg id="arm" viewBox="0 0 640 640" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="telemetry mono" id="telemetry">
+        <span>θ1 <b id="t1">+000.0°</b></span>
+        <span>θ2 <b id="t2">+000.0°</b></span>
+        <span>θ3 <b id="t3">+000.0°</b></span>
+        <span>TCP <b id="tcp">X000 Y000</b></span>
+        <span>MODE <b id="mode">AUTO</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="belt" aria-hidden="true">
+  <div class="belt-track">
+    <span>SPECIAL-PURPOSE ROBOTS ▸ INDUSTRIAL AUTOMATION ▸ VR &amp; AR SIMULATION ▸ EDUCATIONAL ROBOTICS ▸ ENGINEERING CONSULTANCY ▸ </span>
+    <span>SPECIAL-PURPOSE ROBOTS ▸ INDUSTRIAL AUTOMATION ▸ VR &amp; AR SIMULATION ▸ EDUCATIONAL ROBOTICS ▸ ENGINEERING CONSULTANCY ▸ </span>
+  </div>
+</div>
+
+<!-- ============ CAPABILITIES ============ -->
+<section class="caps" id="capabilities">
+  <div class="sec-head">
+    <h2 class="h2 mono">01 / CAPABILITIES</h2>
+    <p class="sec-note">Five divisions. One in-house team — design, build, program, deploy.</p>
+  </div>
+  <div class="cap-grid">
+    <article class="cap" data-cap>
+      <div class="cap-no mono">C·01</div>
+      <svg class="cap-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="40" width="48" height="8" rx="2"/><rect x="14" y="22" width="10" height="18" rx="2"/><rect x="28" y="12" width="10" height="28" rx="2"/><rect x="42" y="28" width="10" height="12" rx="2"/></svg>
+      <h3>Industrial Automation</h3>
+      <p>Automation cells, flexible manufacturing systems and IoT-enabled robotic systems — designed and manufactured in-house, integrated on your floor.</p>
+    </article>
+    <article class="cap" data-cap>
+      <div class="cap-no mono">C·02</div>
+      <svg class="cap-icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="20" fill="none" stroke-width="4"/><circle cx="32" cy="32" r="6"/><path d="M32 12 L32 4 M32 60 L32 52 M12 32 L4 32 M60 32 L52 32" stroke-width="4"/></svg>
+      <h3>Special-Purpose Robots</h3>
+      <p>Mission-critical machines for defence, nuclear and research environments — where standard robots can't go and failure isn't an option.</p>
+    </article>
+    <article class="cap" data-cap>
+      <div class="cap-no mono">C·03</div>
+      <svg class="cap-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M10 24 Q32 8 54 24 L54 40 Q32 56 10 40 Z" fill="none" stroke-width="4"/><circle cx="24" cy="32" r="5"/><circle cx="40" cy="32" r="5"/></svg>
+      <h3>Simulation · VR &amp; AR</h3>
+      <p>Training simulators and immersive VR/AR applications — including simulator development for the armed forces — that let people practice the dangerous parts safely.</p>
+    </article>
+    <article class="cap" data-cap>
+      <div class="cap-no mono">C·04</div>
+      <svg class="cap-icon" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="12" width="40" height="28" rx="3" fill="none" stroke-width="4"/><path d="M22 52 L42 52 M32 40 L32 52" stroke-width="4"/><path d="M20 22 L28 30 M28 22 L20 30" stroke-width="3"/><path d="M36 26 L44 26" stroke-width="3"/></svg>
+      <h3>Educational Robotics</h3>
+      <p>Robotics kits, trainer systems and lab setups — line followers to biped robots — plus RoboAnalyzer® partnership for teaching robot kinematics in 3D.</p>
+    </article>
+    <article class="cap" data-cap>
+      <div class="cap-no mono">C·05</div>
+      <svg class="cap-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 48 L32 16 L48 48 Z" fill="none" stroke-width="4"/><path d="M24 40 L40 40" stroke-width="4"/></svg>
+      <h3>Engineering Software</h3>
+      <p>Techno-commercial partner for FEAST — the FEA suite developed by VSSC, ISRO — bringing indigenous simulation software to industry and academia.</p>
+    </article>
+    <article class="cap cap--cta" data-cap>
+      <div class="cap-no mono">C·∞</div>
+      <h3>Something stranger?</h3>
+      <p>If it needs to move, sense, or simulate — we've probably built something like it. Bring us the problem nobody else will take.</p>
+      <a class="cap-link mono" href="#contact">TALK TO ENGINEERING →</a>
+    </article>
+  </div>
+</section>
+
+<!-- ============ DIVISION BANDS ============ -->
+<section class="work" id="work">
+  <div class="sec-head">
+    <h2 class="h2 mono">02 / FIELD RECORD</h2>
+    <p class="sec-note">A decade of machines in defence, space, nuclear and education.</p>
+  </div>
+
+  <article class="band" data-reveal>
+    <div class="band-meta mono"><span>DOMAIN</span><b>SPACE &amp; DEFENCE</b></div>
+    <p class="band-text">Supporting national research and mission-critical programmes with <b>VSSC / ISRO</b>, <b>Space Applications Centre</b> and the <b>Army Simulator Development Division</b> — from FEA software partnership to simulator development.</p>
+    <div class="band-gauge" aria-hidden="true"><div class="gauge-fill" style="--v:92%"></div></div>
+  </article>
+  <article class="band" data-reveal>
+    <div class="band-meta mono"><span>DOMAIN</span><b>NUCLEAR &amp; RESEARCH</b></div>
+    <p class="band-text">Special-purpose machines and engineering services for <b>BARC</b>, <b>Institute for Plasma Research</b>, <b>RRCAT</b> and <b>C-DAC</b> — robots engineered for environments people shouldn't enter.</p>
+    <div class="band-gauge" aria-hidden="true"><div class="gauge-fill" style="--v:86%"></div></div>
+  </article>
+  <article class="band" data-reveal>
+    <div class="band-meta mono"><span>DOMAIN</span><b>ACADEMIA &amp; INDUSTRY</b></div>
+    <p class="band-text">Educational robotics and consultancy with <b>IIT Bombay</b>, <b>IIT Delhi</b>, <b>NIT Jamshedpur</b> and industry partners like <b>AllyGrow</b> — plus RoboAnalyzer®, used to teach robotics across India.</p>
+    <div class="band-gauge" aria-hidden="true"><div class="gauge-fill" style="--v:78%"></div></div>
+  </article>
+</section>
+
+<!-- ============ CLIENT WALL ============ -->
+<section class="clients" id="clients">
+  <div class="sec-head">
+    <h2 class="h2 mono">03 / TRUSTED BY</h2>
+    <p class="sec-note">Institutions that don't take chances on their machines.</p>
+  </div>
+  <div class="client-wall">
+    <span>VSSC · ISRO</span><span>BARC</span><span>SPACE APPLICATIONS CENTRE</span><span>INSTITUTE FOR PLASMA RESEARCH</span><span>ARMY SIMULATOR DEV. DIVISION</span><span>IIT BOMBAY</span><span>IIT DELHI</span><span>RRCAT</span><span>C-DAC</span><span>NIT JAMSHEDPUR</span><span>ALLYGROW</span><span>TEZPUR UNIVERSITY</span>
+  </div>
+  <div class="stat-row">
+    <div class="stat" data-stat="10"><b class="stat-n mono">0</b><span class="mono">YEARS BUILDING</span></div>
+    <div class="stat" data-stat="5"><b class="stat-n mono">0</b><span class="mono">DIVISIONS</span></div>
+    <div class="stat" data-stat="12"><b class="stat-n mono">0</b><span class="mono">MAJOR INSTITUTIONS</span></div>
+    <div class="stat" data-stat="100"><b class="stat-n mono">0</b><span class="mono">% IN-HOUSE DESIGN</span></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / TEACH PENDANT ============ -->
+<section class="contact" id="contact">
+  <div class="pendant">
+    <div class="pendant-head mono"><span class="led led--ok"></span> TEACH PENDANT — NEW PROGRAM</div>
+    <h2 class="pendant-title">Put a machine<br>on the problem.</h2>
+    <div class="pendant-grid mono">
+      <div><span>EMAIL</span><a href="mailto:info@svrrobotics.com">info@svrrobotics.com</a></div>
+      <div><span>WEB</span><a href="https://www.svrrobotics.com">svrrobotics.com</a></div>
+      <div><span>WORKS</span><p>301/302 Amber Plaza, Sinhgad Institute Road,<br>Ambegaon Budruk, Pune 411046, IN</p></div>
+      <div><span>HOURS</span><p>MON–SAT · 0930–1830 IST</p></div>
+    </div>
+    <a class="btn btn--solid pendant-btn" href="mailto:info@svrrobotics.com">EXECUTE PROGRAM <span aria-hidden="true">▸</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-row mono">
+    <span>© MMXXVI SVR ROBOTICS PVT LTD — CONCEPT REDESIGN BY CLAUDE FABLE · <a href="/guide/">HOW THIS WAS MADE ↗</a></span>
+    <span>NO IMAGES · NO FRAMEWORKS · 100% CODE</span>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>
